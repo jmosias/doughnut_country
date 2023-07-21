@@ -1,8 +1,14 @@
+import AppNavigation from "./components/AppNavigation";
+import CatalogueNavigation from "./components/CatalogueNavigation";
+import Catalogue from "./components/Catalogue";
+
 function App() {
   return (
-    <div>
-      <h1>a</h1>
-    </div>
+    <main className="main-wrapper">
+      <AppNavigation />
+      <CatalogueNavigation />
+      <Catalogue />
+    </main>
   );
 }
 
