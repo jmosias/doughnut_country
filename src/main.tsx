@@ -1,13 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
-import CatalogueDoughnuts from "./components/CatalogueDoughnuts/CatalogueDoughnuts.tsx";
 import {
   createBrowserRouter,
   RouterProvider,
   Navigate,
 } from "react-router-dom";
 import "./index.css";
+import CatalogueDoughnuts from "./components/CatalogueDoughnuts/CatalogueDoughnuts.tsx";
+import CataloguePastries from "./components/CataloguePastries/CataloguePastries.tsx";
+import CatalogueBeverages from "./components/CatalogueBeverages/CatalogueBeverages.tsx";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +18,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <CatalogueDoughnuts />,
+        element: <Navigate to="/doughnuts" replace={true} />,
       },
       {
         path: "/doughnuts",
@@ -24,11 +26,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/pastries",
-        element: <div>pastries</div>,
+        element: <CataloguePastries />,
       },
       {
         path: "/beverages",
-        element: <div>beverages</div>,
+        element: <CatalogueBeverages />,
       },
     ],
   },

@@ -7,7 +7,9 @@ function App() {
     <main className="main-wrapper">
       <AppNavigation />
       <CatalogueNavigation />
-      <Outlet />
+      <div className="outlet-wrapper scrollbar">
+        <Outlet />
+      </div>
     </main>
   );
 }

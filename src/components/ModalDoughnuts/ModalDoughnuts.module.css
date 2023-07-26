@@ -1,0 +1,42 @@
+.catalogue {
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.boxes {
+  border: 0.07rem dashed #49240f;
+}
+
+.flavours {
+  flex: 1;
+  height: 50%;
+  max-height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
+
+.flavour {
+  height: 25%;
+  max-height: 25%;
+  width: 25%;
+  max-width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  height: 63%;
+}
+
+.name {
+  height: 23%;
+  font-size: 0.63rem;
+  line-height: 0.63rem;
+  text-align: center;
+}

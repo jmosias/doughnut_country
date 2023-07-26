@@ -15,7 +15,7 @@ function CatalogueNavigation() {
             }
           >
             <AppIcon name="doughnuts"></AppIcon>
-            <p className="special text">Doughnuts</p>
+            <p className={styles.text}>Doughnuts</p>
           </NavLink>
         </li>
 
@@ -28,7 +28,7 @@ function CatalogueNavigation() {
             }
           >
             <AppIcon name="pastries"></AppIcon>
-            <p className="special text">Pastries</p>
+            <p className={styles.text}>Pastries</p>
           </NavLink>
         </li>
 
@@ -41,7 +41,7 @@ function CatalogueNavigation() {
             }
           >
             <AppIcon name="beverages"></AppIcon>
-            <p className="special text">Beverages</p>
+            <p className={styles.text}>Beverages</p>
           </NavLink>
         </li>
       </ul>

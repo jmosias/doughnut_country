@@ -1,93 +1,48 @@
-import { useState } from "react";
-import { ReactSortable } from "react-sortablejs";
-import styles from "./CatalogueDoughnuts.module.css";
+import PremiumBox from "../../assets/images/doughnut/box_premium.png";
+import ClassicBox from "../../assets/images/doughnut/box_classic.png";
+import GlazedBox from "../../assets/images/doughnut/box_glazed.png";
+import EmptyBox from "../../assets/images/doughnut/box_empty.png";
+import AppProducts from "../AppProducts";
+import { AppProductsProps } from "../AppProducts/AppProducts";
 
-import AlmondButter from "../../assets/images/doughnut/flavours/almond_butter.png";
-import Blueberry from "../../assets/images/doughnut/flavours/blueberry.png";
-import Cappuccino from "../../assets/images/doughnut/flavours/cappuccino.png";
-import Caramel from "../../assets/images/doughnut/flavours/caramel.png";
-import Coconut from "../../assets/images/doughnut/flavours/coconut.png";
-import DarkChoco from "../../assets/images/doughnut/flavours/dark_choco.png";
-import DarkOreo from "../../assets/images/doughnut/flavours/dark_oreo.png";
-import HoneyGlazed from "../../assets/images/doughnut/flavours/honey_glazed.png";
-import IcyGlazed from "../../assets/images/doughnut/flavours/icy_glazed.png";
-import Kitkat from "../../assets/images/doughnut/flavours/kitkat.png";
-import Nutella from "../../assets/images/doughnut/flavours/nutella.png";
-import NuttyRoad from "../../assets/images/doughnut/flavours/nutty_road.png";
-import Smores from "../../assets/images/doughnut/flavours/smores.png";
-import Strawberry from "../../assets/images/doughnut/flavours/strawberry.png";
-import WhiteChoco from "../../assets/images/doughnut/flavours/white_choco.png";
+const products: AppProductsProps["products"] = [
+  {
+    id: "0",
+    img_src: EmptyBox,
+    name: "Customized Box",
+    description: "Choose 6 doughnuts from all 15 flavours",
+    price: 199,
+    button_name: "Customize",
+  },
+  {
+    id: "1",
+    img_src: PremiumBox,
+    name: "Premium Box",
+    description: "Get 6 doughnuts from the newest flavours",
+    price: 199,
+  },
+  {
+    id: "2",
+    img_src: ClassicBox,
+    name: "Classic Box",
+    description: "Get 6 doughnuts from the classic flavours",
+    price: 199,
+  },
+  {
+    id: "3",
+    img_src: GlazedBox,
+    name: "Honey Glazed Box",
+    description: "Get 6 honey glazed doughnuts",
+    price: 199,
+  },
+];
 
-interface Flavour {
-  id: number;
-  name: string;
-  img_src: string;
-}
+const title = "Doughnuts";
 
 function CatalogueDoughnuts() {
-  const [flavourList, setFlavourList] = useState<Flavour[]>([
-    { id: 1, name: "Almond Butter", img_src: AlmondButter },
-    { id: 2, name: "Blueberry", img_src: Blueberry },
-    { id: 3, name: "Cappuccino", img_src: Cappuccino },
-    { id: 4, name: "Caramel", img_src: Caramel },
-    { id: 5, name: "Coconut", img_src: Coconut },
-    { id: 6, name: "Dark Choco", img_src: DarkChoco },
-    { id: 7, name: "Dark Oreo", img_src: DarkOreo },
-    { id: 8, name: "Honey Glazed", img_src: HoneyGlazed },
-    { id: 9, name: "Icy Glazed", img_src: IcyGlazed },
-    { id: 10, name: "Kitkat", img_src: Kitkat },
-    { id: 11, name: "Nutella", img_src: Nutella },
-    { id: 12, name: "Nutty Road", img_src: NuttyRoad },
-    { id: 13, name: "Smores", img_src: Smores },
-    { id: 14, name: "Strawberry", img_src: Strawberry },
-    { id: 15, name: "White Choco", img_src: WhiteChoco },
-  ]);
-  const [boxList, setBoxList] = useState<Flavour[]>([
-    { id: 13, name: "Smores", img_src: Smores },
-  ]);
-
   return (
-    <div className={`${styles.catalogue} scrollbar`}>
-      <ReactSortable
-        list={flavourList}
-        setList={setFlavourList}
-        group={{ name: "groupName", pull: "clone" }}
-        animation={200}
-        delayOnTouchOnly
-        delay={2}
-        className={`${styles.scrollbar} ${styles.flavours}`}
-      >
-        {flavourList.map((flavour) => (
-          <div key={flavour.id} className={styles.flavour}>
-            <img
-              src={flavour.img_src}
-              alt={`${flavour.name} doughnut from Doughnut Country`}
-              className={styles.image}
-            />
-            <p className={styles.name}>{flavour.name}</p>
-          </div>
-        ))}
-      </ReactSortable>
-
-      <ReactSortable
-        list={boxList}
-        setList={setBoxList}
-        group="groupName"
-        animation={200}
-        delayOnTouchOnly
-        delay={2}
-        className={`${styles.scrollbar} ${styles.flavours} ${styles.boxes}`}
-      >
-        {boxList.map((flavour) => (
-          <div key={flavour.id} className={`${styles.flavour}`}>
-            <img
-              src={flavour.img_src}
-              alt={`${flavour.name} doughnut from Doughnut Country`}
-              className={styles.image}
-            />
-          </div>
-        ))}
-      </ReactSortable>
+    <div>
+      <AppProducts title={title} products={products}></AppProducts>
     </div>
   );
 }

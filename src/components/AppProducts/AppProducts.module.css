@@ -1,0 +1,14 @@
+.title {
+  margin-bottom: 2.1rem;
+  font-size: 1.4rem;
+  letter-spacing: 0.14rem;
+  text-align: center;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
