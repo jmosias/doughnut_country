@@ -1,18 +1,13 @@
-import AppProduct, { AppProductProps } from "../AppProduct/AppProduct";
+import { Product } from "../../store/products";
+import AppProduct from "../AppProduct/AppProduct";
 import styles from "./AppProducts.module.css";
 
-export interface AppProductsProps {
+interface AppProductsProps {
   title: string;
-  products: AppProductProps[];
+  products: Product[];
 }
 
-function AppProducts({
-  title,
-  products,
-}: {
-  title: AppProductsProps["title"];
-  products: AppProductsProps["products"];
-}) {
+function AppProducts({ title, products }: AppProductsProps) {
   return (
     <>
       <h2 className={`${styles.title} special`}>{title}</h2>
@@ -20,6 +15,8 @@ function AppProducts({
         {products.map((product) => (
           <AppProduct
             key={product.id}
+            id={product.id}
+            category={product.category}
             img_src={product.img_src}
             name={product.name}
             price={product.price}

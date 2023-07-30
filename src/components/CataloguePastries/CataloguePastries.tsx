@@ -1,31 +1,14 @@
-import CinnamonRolls from "../../assets/images/pastry/cinnamon_rolls.png";
-import CountryBites from "../../assets/images/pastry/country_bites.png";
+import { useAtomValue } from "jotai";
+import { pastriesAtom } from "../../store/products";
 import AppProducts from "../AppProducts";
-import { AppProductsProps } from "../AppProducts/AppProducts";
-
-const products: AppProductsProps["products"] = [
-  {
-    id: "5",
-    img_src: CinnamonRolls,
-    name: "Cinnamon Rolls",
-    description: "Get 12 cinnamon rolls",
-    price: 249,
-  },
-  {
-    id: "6",
-    img_src: CountryBites,
-    name: "Country Bites",
-    description: "Get 16 honey glazed country bites",
-    price: 109,
-  },
-];
-
-const title = "Pastries";
 
 function CataloguePastries() {
+  const pastries = useAtomValue(pastriesAtom);
+  const title = "Pastries";
+
   return (
     <div>
-      <AppProducts title={title} products={products}></AppProducts>
+      <AppProducts title={title} products={pastries}></AppProducts>
     </div>
   );
 }

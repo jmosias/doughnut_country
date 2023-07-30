@@ -1,33 +1,34 @@
+import { useAtom } from "jotai";
+import { cartAtom } from "../../store/cart";
+import { Product } from "../../store/products";
 import styles from "./AppProduct.module.css";
 
-export interface AppProductProps {
-  id: string;
-  img_src: string;
-  name: string;
-  price: number;
-  description?: string;
-  button_name?: string;
-  button_function?: () => void;
-}
-
 function AppProduct({
+  id,
   img_src,
   name,
   price,
   description,
   button_name,
   button_function,
-}: {
-  img_src: AppProductProps["img_src"];
-  name: AppProductProps["name"];
-  price: AppProductProps["price"];
-  description: AppProductProps["description"];
-  button_name: AppProductProps["button_name"];
-  button_function: AppProductProps["button_function"];
-}) {
+}: Product) {
+  const [cart, setCart] = useAtom(cartAtom);
+
   const defaultButtonName = "Add to Order";
-  const defaultProductFunction = () => {
-    console.log("test");
+  const defaultProductFunction = (id: Product["id"]) => {
+    const filteredItem = cart.filter((item) => item.id === id)[0];
+
+    if (filteredItem) {
+      filteredItem.quantity++;
+    } else {
+      setCart((cart) => [
+        ...cart,
+        {
+          id,
+          quantity: 1,
+        },
+      ]);
+    }
   };
 
   return (
@@ -48,7 +49,7 @@ function AppProduct({
             if (button_function) {
               button_function();
             } else {
-              defaultProductFunction();
+              defaultProductFunction(id);
             }
           }}
         >

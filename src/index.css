@@ -14,7 +14,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  background: #fff;
+  background: #fff9eb;
   color: #49240f;
 }
 
@@ -27,17 +27,17 @@
   -webkit-box-shadow: inset 0 0 0.3rem rgba(0, 0, 0, 0.3);
   box-shadow: inset 0 0 0.3rem rgba(0, 0, 0, 0.3);
   border-radius: 0.3rem;
-  background: #fff;
+  background: #fff9eb;
 }
 
 .scrollbar::-webkit-scrollbar {
   width: 0.3rem;
-  background: #fff;
+  background: #fff9eb;
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
   border-radius: 0.3rem;
-  background: #fff;
+  background: #fff9eb;
   background: linear-gradient(to right bottom, #d8b98b, #e6d1b3);
 }
 
@@ -83,6 +83,7 @@
   primary: #ffdd91;
   secondary: #d8b98b;
   tertiary: #49240f;
+  latte: #fff9eb
 } */
 
 /* .disable-select {

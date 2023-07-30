@@ -34,7 +34,7 @@
 .active {
   border-top: 0;
   border-bottom: 1px solid #49240f;
-  background-color: #fff;
+  background-color: #fff9eb;
 }
 
 .item:nth-child(1) .active {
