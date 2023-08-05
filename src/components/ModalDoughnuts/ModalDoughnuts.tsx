@@ -57,16 +57,17 @@ function ModalDoughnuts() {
         delay={2}
         className={`${styles.scrollbar} ${styles.flavours}`}
       >
-        {flavourList.map((flavour) => (
-          <div key={flavour.id} className={styles.flavour}>
-            <img
-              src={flavour.img_src}
-              alt={`${flavour.name} doughnut from Doughnut Country`}
-              className={styles.image}
-            />
-            <p className={styles.name}>{flavour.name}</p>
-          </div>
-        ))}
+        {flavourList &&
+          flavourList.map((flavour) => (
+            <div key={flavour.id} className={styles.flavour}>
+              <img
+                src={flavour.img_src}
+                alt={`${flavour.name} doughnut from Doughnut Country`}
+                className={styles.image}
+              />
+              <p className={styles.name}>{flavour.name}</p>
+            </div>
+          ))}
       </ReactSortable>
 
       <ReactSortable
@@ -78,15 +79,16 @@ function ModalDoughnuts() {
         delay={2}
         className={`${styles.scrollbar} ${styles.flavours} ${styles.boxes}`}
       >
-        {boxList.map((flavour) => (
-          <div key={flavour.id} className={`${styles.flavour}`}>
-            <img
-              src={flavour.img_src}
-              alt={`${flavour.name} doughnut from Doughnut Country`}
-              className={styles.image}
-            />
-          </div>
-        ))}
+        {boxList &&
+          boxList.map((flavour) => (
+            <div key={flavour.id} className={`${styles.flavour}`}>
+              <img
+                src={flavour.img_src}
+                alt={`${flavour.name} doughnut from Doughnut Country`}
+                className={styles.image}
+              />
+            </div>
+          ))}
       </ReactSortable>
     </div>
   );

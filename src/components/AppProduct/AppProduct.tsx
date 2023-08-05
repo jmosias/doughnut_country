@@ -14,7 +14,7 @@ function AppProduct({
 }: Product) {
   const [cart, setCart] = useAtom(cartAtom);
 
-  const defaultButtonName = "Add to Order";
+  const defaultButtonName = "Add";
   const defaultProductFunction = (id: Product["id"]) => {
     const filteredItem = cart.filter((item) => item.id === id)[0];
 
@@ -37,13 +37,13 @@ function AppProduct({
         <img src={img_src} alt={name} className={styles.image} />
       </div>
       <div className={styles["product-info"]}>
-        <p className={`${styles["product-name"]} special`}>{name}</p>
+        <p className={styles["product-name"]}>{name}</p>
         <p className={styles.price}>
           <span className={styles.currency}>&#x20B1;</span> {price}
         </p>
-        <p className={styles.description}> - {description}</p>
+        <p className={styles.description}>- {description}</p>
         <button
-          className={styles.button}
+          className={`${styles.button} bg-gradient-primary`}
           onClick={(e) => {
             e.preventDefault();
             if (button_function) {

@@ -3,16 +3,14 @@ import AppProduct from "../AppProduct/AppProduct";
 import styles from "./AppProducts.module.css";
 
 interface AppProductsProps {
-  title: string;
   products: Product[];
 }
 
-function AppProducts({ title, products }: AppProductsProps) {
+function AppProducts({ products }: AppProductsProps) {
   return (
-    <>
-      <h2 className={`${styles.title} special`}>{title}</h2>
-      <div className={styles.products}>
-        {products.map((product) => (
+    <div className={styles.products}>
+      {products &&
+        products.map((product) => (
           <AppProduct
             key={product.id}
             id={product.id}
@@ -25,8 +23,7 @@ function AppProducts({ title, products }: AppProductsProps) {
             button_function={product.button_function}
           ></AppProduct>
         ))}
-      </div>
-    </>
+    </div>
   );
 }
 

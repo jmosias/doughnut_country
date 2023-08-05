@@ -8,4 +8,9 @@ export interface CartItem {
 
 const cartAtom = atom<CartItem[]>([]);
 
-export { cartAtom };
+const cartLengthAtom = atom((get) => {
+  const cart = get(cartAtom);
+  return cart.length;
+});
+
+export { cartAtom, cartLengthAtom };

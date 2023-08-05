@@ -1,15 +1,17 @@
-import AppNavigation from "./components/AppNavigation";
-import CatalogueNavigation from "./components/CatalogueNavigation";
 import { Outlet } from "react-router-dom";
+import AppHeader from "./components/AppHeader";
+import CatalogueNavigation from "./components/CatalogueNavigation";
+import FABCart from "./components/FABCart";
 
 function App() {
   return (
     <main className="main-wrapper">
-      <AppNavigation />
+      <AppHeader />
       <CatalogueNavigation />
       <div className="outlet-wrapper scrollbar">
         <Outlet />
       </div>
+      <FABCart></FABCart>
     </main>
   );
 }

@@ -27,7 +27,7 @@ const productsAtom = atom<Product[]>([
     name: "Customized Box",
     description: "Choose 6 doughnuts from all 15 flavours",
     price: 199,
-    button_name: "Customize",
+    button_name: "Choose",
   },
   {
     id: "do1",

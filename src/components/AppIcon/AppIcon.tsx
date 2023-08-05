@@ -5,7 +5,7 @@ import doughnuts from "../../assets/svgs/doughnuts.svg";
 import pastries from "../../assets/svgs/pastries.svg";
 import styles from "./AppIcon.module.css";
 
-interface AppIconProps {
+export interface AppIconProps {
   name:
     | "beverages"
     | "delivery_van"

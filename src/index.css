@@ -14,7 +14,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  background: #fff9eb;
+  background: #fff;
   color: #49240f;
 }
 
@@ -46,14 +46,15 @@
   width: 100vw;
   overflow: hidden;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 }
 
 .outlet-wrapper {
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 1.5rem;
+  padding: 1.4rem;
+  padding-top: 0;
 }
 
 .bg-gradient-primary {

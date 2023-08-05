@@ -1,0 +1,30 @@
+.header {
+  padding: 2.1rem 1.4rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #49240f;
+  text-decoration: none;
+}
+
+.image-container {
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
+
+.text {
+  font-size: 0.7rem;
+  font-weight: bold;
+  line-height: 0.7rem;
+  text-transform: uppercase;
+}

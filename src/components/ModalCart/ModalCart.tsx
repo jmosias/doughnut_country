@@ -5,6 +5,7 @@ import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "../Modal";
 import styles from "./ModalCart.module.css";
+import AppIcon from "../AppIcon";
 
 interface CartProduct extends Product {
   quantity: CartItem["quantity"];
@@ -15,6 +16,7 @@ function ModalCart() {
   const products = useAtomValue(productsAtom);
   const [cart, setCart] = useAtom(cartAtom);
   const [cartProducts, setCartProducts] = useState<CartProduct[]>([]);
+  const [total, setTotal] = useState("0");
 
   const getProductById = useCallback(
     (id: Product["id"]) => {
@@ -33,6 +35,14 @@ function ModalCart() {
     });
     return cartProducts;
   }, [cart, getProductById]);
+
+  const updateTotal = useCallback(() => {
+    let total = 0;
+    getCartProducts().forEach((product) => {
+      total += product.price * product.quantity;
+    });
+    setTotal((Math.round(total * 100) / 100).toFixed(2));
+  }, [getCartProducts]);
 
   const addQuantityById = (id: Product["id"]) => {
     const filteredItem = cart.filter((item) => item.id === id)[0];
@@ -53,18 +63,30 @@ function ModalCart() {
 
   const updateCartProducts = useCallback(() => {
     setCartProducts(getCartProducts());
-  }, [getCartProducts]);
+    updateTotal();
+  }, [getCartProducts, updateTotal]);
 
   useEffect(() => {
     updateCartProducts();
-  }, [updateCartProducts]);
+  }, [updateCartProducts, cartProducts]);
 
   return (
     <Modal>
-      <div className={styles.cart}>
-        <h2 className={styles.title}>My Order</h2>
-        <div className={styles.orders}>
-          {cartProducts.map((item) => (
+      <div className={styles.header}>
+        <h2 className={styles.title}>Your Order</h2>
+        <button onClick={() => navigate(-1)} className={styles.close}>
+          Close
+        </button>
+      </div>
+      <div className={`${styles.orders} scrollbar`}>
+        {cartProducts.length <= 0 ? (
+          <div className={styles.empty}>
+            <AppIcon name="doughnut_box" />
+            <p>Your cart is empty</p>
+          </div>
+        ) : (
+          cartProducts.length > 0 &&
+          cartProducts.map((item) => (
             <div className={styles.item} key={item.id}>
               <div className={styles["img-container"]}>
                 <img
@@ -75,9 +97,6 @@ function ModalCart() {
               </div>
               <div className={styles.info}>
                 <p className={styles.name}>{item.name}</p>
-                <p className={styles.subtotal}>
-                  &#x20B1;{item.price * item.quantity}
-                </p>
                 <div className={styles["quantity-container"]}>
                   <button
                     onClick={() => subtractQuantityById(item.id)}
@@ -93,12 +112,37 @@ function ModalCart() {
                     +
                   </button>
                 </div>
-                <button onClick={() => removeItemById(item.id)}>x</button>
+              </div>
+              <div className={styles.price}>
+                <p className={styles.subtotal}>
+                  &#x20B1;{item.price * item.quantity}
+                </p>
+              </div>
+              <div>
+                <button
+                  onClick={() => removeItemById(item.id)}
+                  className={styles.remove}
+                >
+                  -
+                </button>
               </div>
             </div>
-          ))}
-        </div>
-        <button onClick={() => navigate(-1)}>Go back</button>
+          ))
+        )}
+      </div>
+      <div className={styles.footer}>
+        {cartProducts.length > 0 && (
+          <p className={styles.total}>
+            Total <span className={styles.price}>&#x20B1; {total}</span>
+          </p>
+        )}
+        <button
+          disabled={cartProducts.length <= 0}
+          onClick={() => alert("pay")}
+          className={`${styles.pay} bg-gradient-primary`}
+        >
+          Pay
+        </button>
       </div>
     </Modal>
   );

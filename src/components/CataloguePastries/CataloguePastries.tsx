@@ -4,11 +4,10 @@ import AppProducts from "../AppProducts";
 
 function CataloguePastries() {
   const pastries = useAtomValue(pastriesAtom);
-  const title = "Pastries";
 
   return (
     <div>
-      <AppProducts title={title} products={pastries}></AppProducts>
+      <AppProducts products={pastries}></AppProducts>
     </div>
   );
 }

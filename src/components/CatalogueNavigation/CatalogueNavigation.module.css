@@ -1,7 +1,14 @@
 .nav {
-  width: 100%;
-  max-width: 100%;
-  margin-top: 0.35rem;
+  padding: 1.4rem;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.title {
+  font-size: 0.91rem;
+  font-weight: normal;
 }
 
 .list {
@@ -9,6 +16,7 @@
   min-width: 100%;
   list-style-type: none;
   display: flex;
+  gap: 0.7rem;
 }
 
 .item {
@@ -16,12 +24,13 @@
 }
 
 .link {
-  padding: 1rem;
-  border-top: 1px solid #49240f;
+  border: 0.035rem solid #ffdd91;
+  border-radius: 0.35rem;
+  padding: 0.7rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.7rem;
   color: #49240f;
   font-size: 0.7rem;
   text-decoration: none;
@@ -32,20 +41,5 @@
 }
 
 .active {
-  border-top: 0;
-  border-bottom: 1px solid #49240f;
   background-color: #fff9eb;
-}
-
-.item:nth-child(1) .active {
-  border-right: 1px solid #49240f;
-}
-
-.item:nth-child(2) .active {
-  border-right: 1px solid #49240f;
-  border-left: 1px solid #49240f;
-}
-
-.item:nth-child(3) .active {
-  border-left: 1px solid #49240f;
 }

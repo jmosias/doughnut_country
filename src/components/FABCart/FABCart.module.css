@@ -1,0 +1,35 @@
+.cart {
+  position: relative;
+  margin: 0.7rem 1.4rem;
+  padding: 0.7rem 1.4rem;
+  border-radius: 0.35rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+  text-decoration: none;
+}
+
+.text {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.order-count {
+  position: absolute;
+  top: 0.35rem;
+  right: 1.4rem;
+  width: 0.91rem;
+  height: 0.91rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ef4444;
+  color: #fff;
+}
+
+.count-text {
+  font-size: 0.7rem;
+  line-height: 0.7rem;
+}
