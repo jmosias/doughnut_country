@@ -1,6 +1,5 @@
 import { atom } from "jotai";
 
-import EmptyBox from "../assets/images/doughnut/box_empty.png";
 import PremiumBox from "../assets/images/doughnut/box_premium.png";
 import ClassicBox from "../assets/images/doughnut/box_classic.png";
 import GlazedBox from "../assets/images/doughnut/box_glazed.png";
@@ -20,15 +19,6 @@ export interface Product {
 }
 
 const productsAtom = atom<Product[]>([
-  {
-    id: "do0",
-    category: "Doughnuts",
-    img_src: EmptyBox,
-    name: "Customized Box",
-    description: "Choose 6 doughnuts from all 15 flavours",
-    price: 199,
-    button_name: "Choose",
-  },
   {
     id: "do1",
     category: "Doughnuts",

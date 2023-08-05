@@ -1,9 +1,10 @@
 .catalogue {
   overflow-y: auto;
+  padding: 2.1rem 1.4rem;
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  gap: 1.4rem;
 }
 
 .boxes {
@@ -39,4 +40,30 @@
   font-size: 0.63rem;
   line-height: 0.63rem;
   text-align: center;
+}
+
+.footer {
+  padding: 1.4rem;
+  display: flex;
+  gap: 0.7rem;
+}
+
+.button {
+  flex: 1;
+  outline: none;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 0.35rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.05rem;
+}
+
+.button:disabled {
+  opacity: 0.35;
+}
+
+.cancel {
+  background-color: #fff9ed;
+  color: #49240f;
 }

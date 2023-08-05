@@ -11,6 +11,7 @@ import CatalogueDoughnuts from "./components/CatalogueDoughnuts/CatalogueDoughnu
 import CataloguePastries from "./components/CataloguePastries/CataloguePastries.tsx";
 import CatalogueBeverages from "./components/CatalogueBeverages/CatalogueBeverages.tsx";
 import ModalCart from "./components/ModalCart/ModalCart.tsx";
+import ModalChoose from "./components/ModalChoose/ModalChoose.tsx";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
   {
     path: "/cart",
     element: <ModalCart />,
+  },
+  {
+    path: "/choose",
+    element: <ModalChoose />,
   },
   {
     path: "*",
