@@ -24,6 +24,7 @@
 }
 
 .flavours {
+  overflow-x: hidden;
   overflow-y: auto;
   display: flex;
   flex-wrap: wrap;
@@ -31,6 +32,7 @@
 }
 
 .flavour {
+  cursor: pointer;
   position: relative;
   width: 25%;
   max-width: 25%;
@@ -38,6 +40,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.flavour:hover {
+  transform: scale(1.1);
+  transition: all 0.07s ease-in;
 }
 
 .image {
@@ -98,6 +105,7 @@
 }
 
 .button {
+  cursor: pointer;
   flex: 1;
   outline: none;
   border: none;
@@ -113,11 +121,12 @@
 }
 
 .cancel {
-  background-color: #fff9ed;
+  background-color: #fff;
   color: #49240f;
 }
 
 .small-button {
+  cursor: pointer;
   position: absolute;
   outline: none;
   border: none;

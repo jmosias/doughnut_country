@@ -38,11 +38,12 @@
   padding: 1.05rem;
   display: flex;
   gap: 1.05rem;
-  background-color: #fff9ed;
+  background-color: #fff;
 }
 
 .img-container {
   flex: 0.7;
+  max-width: 3.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,6 +51,7 @@
 
 .img {
   width: 100%;
+  height: auto;
 }
 
 .info {
@@ -69,6 +71,10 @@
   border: 0.035rem solid #ffd270;
   border-radius: 0.35rem;
   background-color: transparent;
+}
+
+.quantity-button {
+  cursor: pointer;
 }
 
 .quantity-button,
@@ -103,6 +109,7 @@
 }
 
 .remove {
+  cursor: pointer;
   position: absolute;
   top: -0.35rem;
   right: -0.35rem;
@@ -135,6 +142,7 @@
 }
 
 .pay {
+  cursor: pointer;
   outline: none;
   border: none;
   padding: 1.05rem 1.4rem;
@@ -157,4 +165,12 @@
   gap: 0.7rem;
   opacity: 0.35;
   font-size: 1.05rem;
+}
+
+/* Desktop */
+@media only screen and (min-width: 768px) {
+  .item {
+    padding: 1.4rem 2.1rem;
+    gap: 2.1rem;
+  }
 }

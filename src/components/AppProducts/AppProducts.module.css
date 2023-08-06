@@ -3,3 +3,13 @@
   flex-direction: column;
   gap: 1.05rem;
 }
+
+/* Desktop */
+@media only screen and (min-width: 1100px) {
+  .products {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2%;
+    row-gap: 1.4rem;
+  }
+}

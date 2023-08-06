@@ -1,18 +1,26 @@
-import { useAtomValue } from "jotai";
+import { useAtomValue, useSetAtom } from "jotai";
 import { customProductAtom, doughnutsAtom } from "../../store/products";
-import { useNavigate } from "react-router-dom";
 import { useCallback, useEffect, useState } from "react";
+import {
+  isCartOpenAtom,
+  isChooseOpenAtom,
+  isPaymentOpenAtom,
+} from "../../store/modals";
 import AppProducts from "../AppProducts";
 
 function CatalogueDoughnuts() {
-  const navigate = useNavigate();
+  const setCartOpen = useSetAtom(isCartOpenAtom);
+  const setChooseOpen = useSetAtom(isChooseOpenAtom);
+  const setPaymentOpen = useSetAtom(isPaymentOpenAtom);
   const doughnuts = useAtomValue(doughnutsAtom);
   const customProduct = useAtomValue(customProductAtom);
   const [allDoughnuts, setAllDoughnuts] = useState(doughnuts);
 
   const chooseDoughnuts = useCallback(() => {
-    navigate("/choose");
-  }, [navigate]);
+    setCartOpen(false);
+    setPaymentOpen(false);
+    setChooseOpen(true);
+  }, [setChooseOpen, setCartOpen, setPaymentOpen]);
 
   useEffect(() => {
     setAllDoughnuts([

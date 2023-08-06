@@ -1,7 +1,10 @@
 .cart {
+  cursor: pointer;
   position: relative;
+  outline: none;
   margin: 0.7rem 1.4rem;
   padding: 0.7rem 1.4rem;
+  border: none;
   border-radius: 0.35rem;
   display: flex;
   justify-content: space-between;
@@ -13,6 +16,7 @@
 .text {
   text-transform: uppercase;
   font-weight: bold;
+  font-size: 0.91rem;
 }
 
 .order-count {

@@ -43,3 +43,11 @@
 .active {
   background-color: #fff9eb;
 }
+
+/* Desktop */
+@media only screen and (min-width: 768px) {
+  .item {
+    width: 10.5rem;
+    max-width: 10.5rem;
+  }
+}

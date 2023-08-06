@@ -1,13 +1,16 @@
-import { useNavigate } from "react-router-dom";
+import { useSetAtom } from "jotai";
+import { isCartOpenAtom, isPaymentOpenAtom } from "../../store/modals";
 import Modal from "../Modal";
 import styles from "./ModalPayment.module.css";
 import AppIcon from "../AppIcon";
 
 function ModalPayment() {
-  const navigate = useNavigate();
+  const setCartOpen = useSetAtom(isCartOpenAtom);
+  const setPaymentOpen = useSetAtom(isPaymentOpenAtom);
 
   const completeOrder = () => {
-    navigate("/");
+    setPaymentOpen(false);
+    setCartOpen(true);
   };
 
   return (
@@ -18,7 +21,7 @@ function ModalPayment() {
       <div className={styles.warning}>
         <AppIcon name="delivery_van" widthSize="7rem" heightSize="7rem" />
         <p>
-          Unfortunately, our company <br /> is no longer in operations.
+          Unfortunately, our company <br /> is no longer operating.
         </p>
         <p>
           We would like to thank everyone <br /> who supported our business.

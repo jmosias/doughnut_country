@@ -1,19 +1,31 @@
 /* eslint-disable prefer-spread */
 
-import { useAtomValue, useAtom } from "jotai";
+import { useAtomValue, useAtom, useSetAtom } from "jotai";
 import { Flavour, flavoursAtom } from "../../store/flavours";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { customCartAtom } from "../../store/cart";
+import {
+  isCartOpenAtom,
+  isChooseOpenAtom,
+  isPaymentOpenAtom,
+} from "../../store/modals";
 import Modal from "../Modal";
 import styles from "./ModalChoose.module.css";
-import { customCartAtom } from "../../store/cart";
 
 function ModalChoose() {
-  const navigate = useNavigate();
+  const setCartOpen = useSetAtom(isCartOpenAtom);
+  const setChooseOpen = useSetAtom(isChooseOpenAtom);
+  const setPaymentOpen = useSetAtom(isPaymentOpenAtom);
   const flavourList = useAtomValue(flavoursAtom);
   const [customCart, setCustomCart] = useAtom(customCartAtom);
   const [boxList, setBoxList] = useState<Flavour[]>([]);
   const max = 6;
+
+  const closeModal = () => {
+    setPaymentOpen(false);
+    setChooseOpen(false);
+    setCartOpen(true);
+  };
 
   const addToBox = (flavour: Flavour) => {
     if (boxList.length >= 6) return;
@@ -32,7 +44,7 @@ function ModalChoose() {
         flavours,
       },
     ]);
-    navigate(-1);
+    closeModal();
   };
 
   return (
@@ -42,7 +54,7 @@ function ModalChoose() {
       </div>
 
       <div className={`${styles.catalogue} scrollbar`}>
-        <div className={`${styles.flavours}`}>
+        <div className={`${styles.flavours} scrollbar`}>
           {flavourList &&
             flavourList.map((flavour) => (
               <div
@@ -87,7 +99,7 @@ function ModalChoose() {
 
       <div className={styles.footer}>
         <button
-          onClick={() => navigate(-1)}
+          onClick={() => closeModal()}
           className={`${styles.cancel} ${styles.button}`}
         >
           Cancel

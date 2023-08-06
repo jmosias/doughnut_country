@@ -31,12 +31,13 @@
 }
 
 .cancel {
+  cursor: pointer;
   flex: 1;
   outline: none;
   border: none;
   padding: 1.05rem 1.4rem;
   border-radius: 0.35rem;
-  background-color: #fff9ed;
+  background-color: #fff;
   color: #49240f;
   text-transform: uppercase;
   font-weight: bold;

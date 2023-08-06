@@ -1579,6 +1579,11 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
+use-breakpoint@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/use-breakpoint/-/use-breakpoint-3.1.1.tgz#2750f36b77e3032d70b902ecdfac4b02cc4f5768"
+  integrity sha512-zJ2a9sqdiOnsYwjZryOuq+SIDRP2vWsl7iWDUJ7Xid9t29zF1oLZjkEE+uRooPB/98YT+784rCFIvmKhV6VqLg==
+
 vite@^4.4.0:
   version "4.4.4"
   resolved "https://registry.yarnpkg.com/vite/-/vite-4.4.4.tgz#b76e6049c0e080cb54e735ad2d18287753752118"

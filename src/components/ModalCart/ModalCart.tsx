@@ -1,9 +1,14 @@
-import { useAtom, useAtomValue } from "jotai";
+import { useAtom, useAtomValue, useSetAtom } from "jotai";
 import { CartItem, cartAtom, customCartAtom } from "../../store/cart";
 import { Product, customProductAtom, productsAtom } from "../../store/products";
 import { Flavour } from "../../store/flavours";
 import { useState, useEffect, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import {
+  breakpointsAtom,
+  isCartOpenAtom,
+  isPaymentOpenAtom,
+} from "../../store/modals";
+import { useBreakpoint } from "use-breakpoint";
 import Modal from "../Modal";
 import styles from "./ModalCart.module.css";
 import AppIcon from "../AppIcon";
@@ -14,16 +19,20 @@ interface CartProduct extends Product {
 }
 
 function ModalCart() {
-  const navigate = useNavigate();
+  const setCartOpen = useSetAtom(isCartOpenAtom);
+  const setPaymentOpen = useSetAtom(isPaymentOpenAtom);
   const products = useAtomValue(productsAtom);
   const customProduct = useAtom(customProductAtom);
+  const breakpoints = useAtomValue(breakpointsAtom);
+  const { breakpoint } = useBreakpoint(breakpoints);
   const [cart, setCart] = useAtom(cartAtom);
   const [customCart, setCustomCart] = useAtom(customCartAtom);
   const [cartProducts, setCartProducts] = useState<CartProduct[]>([]);
   const [total, setTotal] = useState("0");
 
   const pay = () => {
-    navigate("/payment");
+    setCartOpen(false);
+    setPaymentOpen(true);
   };
 
   const getProductById = useCallback(
@@ -87,15 +96,17 @@ function ModalCart() {
 
   useEffect(() => {
     updateCartProducts();
-  }, [updateCartProducts, cartProducts]);
+  }, [updateCartProducts]);
 
   return (
     <Modal>
       <div className={styles.header}>
         <h2 className={styles.title}>Your Order</h2>
-        <button onClick={() => navigate(-1)} className={styles.close}>
-          Close
-        </button>
+        {breakpoint === "mobile" && (
+          <button onClick={() => setCartOpen(false)} className={styles.close}>
+            Close
+          </button>
+        )}
       </div>
       <div className={`${styles.orders} scrollbar`}>
         {cartProducts.length <= 0 ? (
@@ -106,7 +117,7 @@ function ModalCart() {
         ) : (
           cartProducts.length > 0 &&
           cartProducts.map((item, index) => (
-            <div className={styles.item} key={item.id}>
+            <div className={styles.item} key={index}>
               <div className={styles["img-container"]}>
                 <img
                   src={item.img_src}
