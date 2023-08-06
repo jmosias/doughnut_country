@@ -12,9 +12,11 @@ export interface AppIconProps {
     | "doughnut_box"
     | "doughnuts"
     | "pastries";
+  widthSize?: string;
+  heightSize?: string;
 }
 
-function AppIcon({ name }: { name: AppIconProps["name"] }) {
+function AppIcon({ name, widthSize, heightSize }: AppIconProps) {
   const appIcons = {
     beverages: beverages,
     delivery_van: delivery_van,
@@ -24,7 +26,12 @@ function AppIcon({ name }: { name: AppIconProps["name"] }) {
   };
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={
+        widthSize && heightSize ? { width: widthSize, height: heightSize } : {}
+      }
+    >
       <img src={appIcons[name]} alt={`${name} icon`} className={styles.icon} />
     </div>
   );

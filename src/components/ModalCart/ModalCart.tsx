@@ -22,6 +22,10 @@ function ModalCart() {
   const [cartProducts, setCartProducts] = useState<CartProduct[]>([]);
   const [total, setTotal] = useState("0");
 
+  const pay = () => {
+    navigate("/payment");
+  };
+
   const getProductById = useCallback(
     (id: Product["id"]) => {
       return products.filter((product) => id === product.id)[0];
@@ -166,10 +170,10 @@ function ModalCart() {
         )}
         <button
           disabled={cartProducts.length <= 0}
-          onClick={() => alert("pay")}
+          onClick={() => pay()}
           className={`${styles.pay} bg-gradient-primary`}
         >
-          Pay
+          Review Payment
         </button>
       </div>
     </Modal>
